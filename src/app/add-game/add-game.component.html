@@ -1,0 +1,38 @@
+<div class="container">
+    <div>
+        <h2 style="color: rgb(0, 0, 0);">Ajouter une jeu :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label style="color: rgb(0, 0, 0);">Game ID</label>
+            <input type="text" [(ngModel)]="newGame.idGame" name="idGame" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label style="color: rgb(0, 0, 0);">Name</label>
+            <input type="text" [(ngModel)]="newGame.nomGame" name="nomGame" class="form-control">
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label style="color: rgb(0, 0, 0);">Prix</label>
+            <input type="number" [(ngModel)]="newGame.prixGame" name="prixGame" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Genre</label>
+            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="newIdGenre">
+                <option *ngFor="let cat of genres" [value]="cat.idGenre">
+                    {{cat.nomGenre}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label style="color: rgb(0, 0, 0);">Date création</label>
+            <input type="date" [(ngModel)]="newGame.dateCreation" name="dateCreation" class="form-control">
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="addGame()" style="background-color: rgb(134, 134, 2);">Ajouter</button>
+        </div>
+    </form>
+
+</div>

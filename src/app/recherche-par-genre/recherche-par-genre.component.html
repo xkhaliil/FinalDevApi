@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <label style="color: black;">Genres </label>
+            <select class="form-control form-control-lg" id="idGenre" name="idGenre"
+            [(ngModel)]="IdGenre" (change)="onChange()" style="background-color: #7b781900;color: black;" >
+            <option *ngFor="let cat of genres" value="{{cat.idGenre}}" style="color: black;">
+            {{cat.nomGenre}}
+             </option>
+            </select>
+        </div>
+        
+            
+        
+        
+        <br>
+
+    </div>
+    <div class="card shadow mb-4" style="background-color: #eeeeee;border-color: #00000000;"  >
+    <div class="flat-table" style="background-color: #00000000;border-color: #00000000;">
+    <table class="table table-striped" style="background-color: #ffffff00;border-color: #00000000;border-style: none;">
+    <tr> <th>ID</th><th>Nom</th> <th>Prix</th> <th>Date Création</th><th>Genre</th><th></th><th></th></tr>
+    <tbody *ngFor="let game of games">
+    <tr >
+    <td>{{game.idGame}}</td>
+    <td>{{game.nomGame}}</td>
+    <td>{{game.prixGame}}</td>
+    <td>{{game.dateCreation | date:'dd/MM/yyyy'}}</td>
+    <td>{{game.genre.nomGenre}}</td>
+    <td><button class="glow-on-hover1" *ngIf="authService.isAdmin()"  (click)="supprimerGame(game)" type="button">Supprimer</button></td>
+    <td><button class="glow-on-hover2" *ngIf="authService.isAdmin()"  [routerLink]="['/updateGame',game.idGame] " type="button">Modifier</button></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
